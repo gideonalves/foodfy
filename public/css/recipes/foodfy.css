@@ -1,0 +1,223 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'; 
+
+* { /* aqui tira toda a margem do titulo */
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-font: #111111;
+    --color-main-section-one: #FBDFDB;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}  
+
+header {
+    display: flex;
+    width: 940px;
+    padding: 30px 30px 30px 0;
+    margin: 0 auto;   
+}    
+
+.logo {
+    margin-right: 122.4px;
+ }
+
+.links a {
+    margin-right: 30px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--color-font);
+    text-decoration: none;
+}
+
+main {
+    max-width: 940px;
+    margin: 0 auto;
+    color: #111111;
+}
+
+.container-banner {
+    margin: 0 auto;
+    width: 940px;
+    height: 366px;
+    background-color: var(--color-main-section-one);
+    border-radius: 30px;
+    border-radius: 30px;
+    display: flex;
+}
+
+.container-banner
+.container-one {
+    margin-right: 240px;
+}
+
+.container-one h1 {
+    padding-left: 60px;
+    padding-top: 117px;
+    font-size: 32px;
+    line-height: 42px;
+    color: var(--color-font);
+}
+
+.container-one p {
+    padding-left: 60px;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+    opacity: 0,7;
+    max-width: 316px;
+    margin-top: 10px;
+}
+
+.chefe img {
+    margin-top: 66px;
+}
+
+.subtitulo {
+    font-size: 24px;
+    color: var(--color-font);
+    margin-top: 50px;
+}
+
+/* =========== CARDS ================= */
+
+.cards {
+    margin-top: 20px;
+    display: grid; /* forma dispay */
+    grid-template-columns: 1fr 1fr 1fr; /* o "1fr" signica que fez 3 colunas*/
+    gap: 20px; /* espaço de card e outro */  
+ }
+ 
+ .card__image img {
+     width: 300px;
+     height: 140px;
+     border-radius: 15px;
+     border-radius: 15px;    
+     cursor: pointer;
+ }
+ 
+ .card__image img:hover {
+     background-color: white;
+     border-radius: 16px;
+     transform: scale(1.05);
+     transition: transform .2s linear;
+ }
+ 
+ .card__info h2 {
+     font-size: 18px;
+     line-height: 28px;
+     margin-top: 20px;
+     color: var(--color-font);
+ }
+ 
+ .card__info p {
+     font-size: 14px;
+     line-height: 24px;
+     color: #777777;    
+ }
+
+ /* =========== PAGE RECIPE =========== */
+.recipe-banner {
+    text-align: center;  
+    margin-bottom: 50px;
+}
+
+.recipe-banner img {
+    width: 940px;
+    height: 280px;
+    border-radius: 15px;
+    border-radius: 15px;   
+}
+
+.recipe-banner h2 {
+    padding: 50px 0 4px 0;
+    font-size: 36px;
+    line-height: 46px;
+    color: #111111;  
+} 
+
+.recipe-banner span {
+    font-size: 20px;
+    line-height: 30px;
+    color: #777777;
+} 
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details .row{
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    /* justify-content: baseline; */
+    margin: 20px 0;
+}
+
+.details .title {
+    font-size: 24px;
+    line-height: 34px;
+    color: #111111;
+    margin-right: 8px;
+}
+
+.details .hideShow {
+    font-size: 12px;
+    line-height: 22px;
+    color: #999999;
+    cursor: pointer;
+}
+
+.details .hideShow:hover{
+    color: #777777;
+}
+
+.details-content ul li {
+    font-size: 18px;
+    line-height: 28px;
+    color: #444444;
+    margin-left: 16px;
+}
+
+.details-content p {
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+    margin: 0;
+}
+
+/* =========== PAGE SOBRE =========== */
+
+h3{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+p {
+    margin: 20px auto 20px auto;
+    font-family: Roboto-Regular;
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+}
+
+footer {
+    margin-top: 50px;
+    background: #EEEEEE;
+    height: 62px;
+    align-content: center;   
+    display: flex;
+   }
+
+footer p {
+    font-size: 14px;
+    color: #999999;
+    text-align: center;
+    margin: auto;    
+}  

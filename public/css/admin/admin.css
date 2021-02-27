@@ -1,0 +1,274 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'; 
+
+* { /* aqui tira toda a margem do titulo */
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-font: #111111;
+    --color-main-section-one: #FBDFDB;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}  
+
+header {
+    height: 80px;
+    background: #111111;
+}    
+
+.logo {
+    max-width: 940px;
+    margin: 0 auto;
+ }
+
+.logo a img {
+    margin: 0 auto;
+    align-items: center; 
+    padding-top: 27px;
+    color: #FFFFFF;
+    max-width: 940px;
+ }
+
+main {
+    max-width: 940px;
+    margin: 0 auto;
+    color: #111111;
+}
+
+.subtitulo {
+    margin: 30px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button[type="submit"],
+a.button {  
+    padding: 8px 20px;
+    margin-right: 30px; 
+    font-size: 16px;
+    width: 139px;
+    height: 37px;
+    background: #6558C3;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border-radius: 4px;    
+}
+
+.subtitulo .btnDele {
+    background-color: #f10c0c;
+}
+
+.subtitulo a {
+    text-decoration: none;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.subtitulo h2 {
+    /* font-family: Roboto-Bold; */
+    font-size: 24px;
+    color: #111111;
+    align-items: center;
+
+}
+
+/* =========== CARDS ================= */
+
+.cards {
+    margin-top: 20px;
+    display: grid; /* forma dispay */
+    grid-template-columns: 1fr 1fr; /* o "1fr" signica que fez 3 colunas*/
+    gap: 20px; /* espaço de card e outro */  
+ }
+
+ .card_container {
+     display: flex;
+ }
+
+ .card__image {
+    margin-right: 20px;
+ }
+
+ .card__image img {
+     width: 172px;
+     height: 80px;
+     border-radius: 15px;
+     border-radius: 15px;    
+     cursor: pointer;  
+ }
+ 
+ .card__image img:hover {
+     background-color: white;
+     border-radius: 16px;
+     transform: scale(1.05);
+     transition: transform .2s linear;
+ }
+
+ .card__info h2 {
+     font-size: 18px;
+     line-height: 28px;
+     /* margin-top: 20px; */
+     color: var(--color-font);
+ }
+ 
+ .card__info p {
+     font-size: 14px;
+     line-height: 24px;
+     color: #777777;    
+ } 
+
+ .card__info a {
+    font-size: 14px;
+    line-height: 24px;
+    color: #6558C3; 
+    text-decoration: none;   
+} 
+
+/* DETAILS */
+
+.details .item {
+    padding: 15px 0;
+}
+
+.details .item div:nth-child(1){ /* pega tudo da primeira div */
+    font-size: 16px;
+    line-height: 28px;
+    color: #111111    
+}
+
+.details .item div:nth-child(2){ /* pega tudo da segunda div */
+    font-size: 24px;
+    font-weight: bold;
+    color: #111111
+}
+
+.details a { 
+    font-size: 16px;
+    line-height: 34px;
+    text-decoration: none;  
+    color: #6558C3;
+    text-align: left; 
+    cursor: pointer;
+}
+
+/* FORM */
+
+input {
+    width: 100%;
+    height: 49px;
+    margin-top: 5px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    border-radius: 4px;
+    outline: none;
+    font-weight: normal;
+    font-size: 26px;
+    padding-left: 10px;
+}
+
+input::placeholder {
+    font-size: 26px;
+    font-weight: normal;
+}
+
+textarea {
+    width: 100%;
+    height: 257px;
+    margin-top: 5px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    border-radius: 4px;
+    font-weight: normal;
+    font-size: 26px;
+    padding: 10px 0 0 10px;
+}
+
+ /* =========== PAGE RECIPE =========== */
+ .recipe-banner {
+    text-align: center;  
+    margin-top: 24px;
+    margin-bottom: 31px;
+}
+
+.recipe-banner img {
+    width: 940px;
+    height: 280px;
+    border-radius: 15px;
+    border-radius: 15px;   
+}
+
+.recipe-banner h2 {
+    padding: 50px 0 4px 0;
+    font-size: 36px;
+    line-height: 46px;
+    color: #111111;  
+} 
+
+.recipe-banner span {
+    font-size: 20px;
+    line-height: 30px;
+    color: #777777;
+} 
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details .row{
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    /* justify-content: baseline; */
+    margin: 20px 0;
+}
+
+.details .title {
+    font-size: 24px;
+    line-height: 34px;
+    color: #111111;
+    margin-right: 8px;
+}
+
+.details .hideShow {
+    font-size: 12px;
+    line-height: 22px;
+    color: #999999;
+    cursor: pointer;
+}
+
+.details .hideShow:hover{
+    color: #777777;
+}
+
+.details-content ul li {
+    font-size: 18px;
+    line-height: 28px;
+    color: #444444;
+    margin-left: 16px;
+}
+
+.details-content  {
+    width: 100%
+}
+
+.details-content p {
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+    margin: 0;
+}
+
+.details:last-child { /* espacamento no ultimo filho */
+    margin-bottom: 51px;
+}   
+
+

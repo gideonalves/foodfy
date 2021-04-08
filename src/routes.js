@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = express.Router()
-const RecipesController = require('./controllers/RecipesController')
-const AdminController = require('./controllers/AdminController')
+const RecipesController = require('./app/controllers/RecipesController')
+const AdminController = require('./app/controllers/AdminController')
 
 // Rotas Recipes
 routes.get("/", RecipesController.index ) //ROTA INDEX

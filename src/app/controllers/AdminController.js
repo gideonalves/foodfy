@@ -1,4 +1,4 @@
- const Admin = require('../../models/Admin')
+const Admin = require('../../models/Admin')
 
 module.exports = {
 
@@ -23,7 +23,7 @@ module.exports = {
         }
       //        fucao    paramet,  paramet
         Admin.create(req.body, function(recipe) { // fuções callback
-            console.log(recipe)
+            // console.log(recipe)
             return res.redirect(`/admin/recipes/${recipe.id}`)
         })
      
@@ -40,7 +40,7 @@ module.exports = {
     edit(req, res) {
         Admin.find(req.params.id, function(recipes) {
             if(!recipes) return res.send("Recipes not found!")
-
+            // console.log(recipes)
             return res.render("admin/recipes/edit", {items: recipes})
         })
     },
@@ -54,7 +54,20 @@ module.exports = {
                 return res.send('Please, fill all fields!')
             }
         }
+        // filtro do array ingredites para remover item vazio
+        req.body.ingredients = req.body.ingredients.filter(function(item) { // filter precisa retornar boolean se o boolean for verdadeiro ele mantem o item no array  se for false ele tira o item do array                     
+                    // console.log(item != "")
+                     return item != ""
+                    
 
+                // if(item == "") // aqui to falando que o item ta vazio
+                // {
+                //     return false // essa linha tira o item do arrey 
+                // }
+                // return true // essa linha mantem o item no arrey
+        })
+        
+        // console.log(req.body.ingredients)
     //-----------------------------------------------------------------
         Admin.updade(req.body, function() {
             return res.redirect(`/admin/recipes/${req.body.id}`)

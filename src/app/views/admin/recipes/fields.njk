@@ -1,98 +1,68 @@
+<div class="item">
+    <div>Imagem da receita</div>
+    <div>
+        <input type="text" name="image" value="{{items.image}}">
+    </div>
+</div>
+</div>
 
-                <div class="item">
-                        <div>Nome da receita</div>
-                    <div>
-                        <input 
-                                type="text" 
-                                name="title" 
-                                value="{{items.title}}"
-                            >
-                        </div>
-                    </div>
+<div class="item">
+<div>Chef</div>
+<div>
+    <select name="chef">
+        {% for chef in chefOptions %}
+            <option value="{{chef.id}}" {% if recipes.chef_id == chef.id %} selected="selected" {% endif %}>
+                {{chef.name}}
+            </option>
+            {% endfor%}
+
+        </select>
+    </div>
+</div>
+
+{# ingredientes #}
+<div class="item" id="ingredients">
+    {% if not items.ingredients %}
+        <div class="ingredient">
+            <input class="inpt" type="text" name="ingredients[]" value="" placeholder="Ingredientes"/>
+        </div>
+
+        {%else%}
+
+        {% for item in items.ingredients %}
+            <div class="ingredient">
+                <input class="inpt" type="text" name="ingredients[]" value="{{item}}" placeholder="Ingredientes"/>
+            </div>
+        {% endfor %}
+        {%endif%}
+    </div>
+    <a type="button" class="add-ingredient">Adicionar novo ingrediente
+    </a>
+</div>
+    {# preparação #}
+<div class="item" id="preparations">
+    {% if not items.preparation %}
+        <div class="preparation">
+            <input type="text" name="preparation[]" value="" placeholder="Preparação"/>
+        </div>
+    {% else %}
+
+        {% for item in items.preparation %}
+            {% if item %}
+                <div class="preparation">
+                    <input type="text" name="preparation[]" value="{{item}}" placeholder="Preparação"/>
                 </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
 
-                <div class="item">
-                    <div>Imagem da receita</div>
-                    <div>
-                       <input 
-                            type="url" 
-                            name="image" 
-                            placeholder="HTTP://"
-                            value="{{items.image}}"
-                        >
-                    </div>
-                </div>
+<a type="button" class="add-preparation">Adicionar novo passo</a>
+{# fim preparations #}
 
-                {# ingreientes #}
-                <div class="item" id="ingredients">
-                {% if not items.ingredient %}
-                         <div class="ingredient">
-                            <input 
-                                type="text" 
-                                name="ingredient[]" 
-                                value="" 
-                                placeholder="Ingrediente" 
-                            />
-                        </div>  
-
-                {%else%}
-                    {% for item in items.ingredient %}
-                        <div class="ingredient">
-                            <input 
-                                type="text" 
-                                name="ingredient[]" 
-                                value="{{item}}" 
-                                placeholder="Ingrediente" 
-                            />
-                        </div>  
-                    {% endfor %}  
-                {%endif%}
-                </div>
-                <a 
-                    type="button" 
-                    class="add-ingredient"
-                    >Adicionar novo ingrediente 
-                </a>
-               
-                {# preparação #}
-                <div class="item" id="preparations">
-                   {% if not items.preparation %}
-                        <div class="preparation">
-                                <input 
-                                    type="text" 
-                                    name="preparation[]" 
-                                    value=""  
-                                    placeholder="Preparação" 
-                                />
-                            </div> 
-                   {% else %} 
-
-                        {% for item in items.preparation %}
-                            <div class="preparation">
-                                <input 
-                                    type="text" 
-                                    name="preparation[]" 
-                                    value="{{item}}"  
-                                    placeholder="Preparação" 
-                                />
-                            </div> 
-                        {% endfor %}  
-                    {% endif %}    
-                </div>
-
-                <a 
-                    type="button" 
-                    class="add-preparation"
-                    >Adicionar novo passo
-                </a>          
-                {# fim preparations #}
-             
-                <div class="item">
-                    <div>Informações adicionais</div>
-                    <div>
-                      <textarea
-                            type="text" 
-                            name="information" 
-                      >{{items.information}}</textarea>
-                    </div>
-                </div>
+<div class="item">
+    <div>Informações adicionais</div>
+    <div>
+        <textarea type="text" name="information">{{items.information}}</textarea>
+    </div>
+</div>

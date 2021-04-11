@@ -16,23 +16,45 @@ body {
     font-family: 'Roboto', sans-serif;
 }  
 
-header {
+.header {
+    width: 100%;
     height: 80px;
-    background: #111111;
-}    
-
-.logo {
-    max-width: 940px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111111;
+    margin-bottom: 50px;
+}
+  
+.header .header-content {
+    width: 940px;
     margin: 0 auto;
- }
-
-.logo a img {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+  
+  .header .header-content .header-infos {
     margin: 0 auto;
-    align-items: center; 
-    padding-top: 27px;
-    color: #FFFFFF;
-    max-width: 940px;
+    margin-left: 50px;
  }
+  
+.header-infos a {
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #999999;
+    transition: 350ms;
+}
+  
+.header-infos a:hover {
+    color: #ffffff;
+}
+  
+.header-infos a.active {
+    color: #ffffff;
+    font-weight: bold;
+}
 
 main {
     max-width: 940px;
@@ -130,6 +152,59 @@ a.button {
     text-decoration: none;   
 } 
 
+/* CHEFS */
+
+.cards_chefs {
+    margin-top: 20px;
+    display: grid; /* forma dispay */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* o "1fr" signica que fez 3 colunas*/
+    gap: 20px; /* espaço de card e outro */  
+ }
+
+ .chef_container {
+     display: flex;
+ }
+
+ .chef_image {
+    margin-right: 20px;
+ }
+
+ .chef_image img {
+     width: 64px;
+     height: 64px;
+     border-radius: 50%;
+     cursor: pointer;  
+ }
+ 
+ .chef_image img:hover {
+     background-color: white;
+     border-radius: 16px;
+     transform: scale(1.05);
+     transition: transform .2s linear;
+ }
+
+ .chef_info h2 {
+     font-size: 18px;
+     line-height: 28px;
+     /* margin-top: 20px; */
+     color: var(--color-font);
+ }
+ 
+ .chef_info p {
+     font-size: 14px;
+     line-height: 24px;
+     color: #777777;    
+ } 
+
+ .chef_info a {
+    font-size: 14px;
+    line-height: 24px;
+    color: #6558C3; 
+    text-decoration: none;   
+} 
+
+
+
 /* DETAILS */
 
 .details .item {
@@ -145,7 +220,8 @@ a.button {
 .details .item div:nth-child(2){ /* pega tudo da segunda div */
     font-size: 24px;
     font-weight: bold;
-    color: #111111
+    color: #111111;
+
 }
 
 .details a { 
@@ -271,4 +347,19 @@ textarea {
     margin-bottom: 51px;
 }   
 
+/* =========== ADMIN SHOW ================= */
+.chef_avatar {
+    text-align: center;
+}
 
+.chef_avatar img {
+   width: 200px; 
+   height: 200px;
+   border-radius: 50%;
+   margin-top: 51px;
+}
+
+.chef_avatar h2 {
+    font-size: 36px;
+    margin-top: 20px;
+}

@@ -1,16 +1,16 @@
-{% extends "admin/recipes/layout.njk" %}
+{% extends "admin/chefs/layout.njk" %}
 
 {% block content %}
 
     <main>
-        <form class="details" method="POST" action="/admin/recipes/">
+        <form class="details" method="POST" action="/admin/chefs/">
 
                 <div class="subtitulo">
                     <h2>Criando receita</h2>
                     <button type="submit">Salvar receita</button>
                 </div>           
 
-                {% include 'admin/recipes/fields.njk' %}
+                {% include 'admin/chefs/fields.njk' %}
 
         </form>
     </main>

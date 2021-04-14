@@ -10,7 +10,11 @@ module.exports = {
     },
 
     create(req, res) {
-        return res.render("admin/recipes/create")        
+        Admin.chefSelectOptions(function(option) {
+            return res.render("admin/recipes/create", {chefOptions: option  })       
+
+        })
+
     },
 
     post(req, res) {
@@ -35,7 +39,7 @@ module.exports = {
 
             return res.render("admin/recipes/show", {items: recipes})
         })
-   },
+    },
 
     edit(req, res) {
         Admin.find(req.params.id, function(recipes) {
@@ -80,6 +84,7 @@ module.exports = {
         })
 
     },
+
 }
 
 

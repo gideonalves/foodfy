@@ -9,11 +9,11 @@
 <div class="item">
 <div>Chef</div>
 <div>
-    <select name="chef">
-        {% for chef in chefOptions %}
-            <option value="{{chef.id}}" {% if recipes.chef_id == chef.id %} selected="selected" {% endif %}>
-                {{chef.name}}
-            </option>
+        <select name="chef_id">
+            {% for chef in chefOptions %}
+                <option value="{{chef.id}}" {% if recipes.chef_id == chef.id %} selected="selected" {% endif %}>
+                    {{chef.name}}
+                </option>
             {% endfor%}
 
         </select>

@@ -11,7 +11,7 @@ module.exports = {
         })    
     },
 //        req.body        
-    create(data, calback) { 
+    create(data, callback) { 
          //inserir dados no banco de dados
          const query = `
          INSERT INTO recipes (
@@ -41,11 +41,10 @@ module.exports = {
              callback(results.rows[0])
          })
     },
-
+    // show
     find(id, callback) {
         db.query(`
-            SELECT * 
-            FROM recipes
+            SELECT * FROM recipes
             WHERE id = $1`, [id], function(err, results) {
                 if(err) throw `Database Erro! ${err}`
     
@@ -90,6 +89,15 @@ module.exports = {
 
             return callback()
         })
-    }    
+    },   
+    chefSelectOptions(callback) {
+        db.query(`
+            SELECT * FROM chefs`,
+            function(err, results) {
+            if(err) throw `Database Erro! ${err}`
+
+            callback(results.rows)
+        })  
+    }
 
 }

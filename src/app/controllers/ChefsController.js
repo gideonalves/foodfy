@@ -29,11 +29,11 @@ module.exports = {
     },
 
     show(req, res) {
-        ChefsAdmin.find(req.params.id, function(chefs) {
-            if(!chefs) return res.send("Recipes not found!")
+        ChefsAdmin.find(req.params.id, function(chef, recipes, totalRecipes) {
+            if(!chef) return res.send("Recipes not found!")
             
 
-            return res.render("admin/chefs/show", {items: chefs})
+            return res.render("admin/chefs/show", { chef, recipes, totalRecipes })
         })
    },
 

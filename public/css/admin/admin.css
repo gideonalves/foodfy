@@ -102,7 +102,8 @@ a.button {
 
 /* =========== CARDS ================= */
 
-.cards {
+.cards,
+.chefs_cards {
     margin-top: 20px;
     display: grid; /* forma dispay */
     grid-template-columns: 1fr 1fr; /* o "1fr" signica que fez 3 colunas*/
@@ -350,6 +351,7 @@ textarea {
 /* =========== ADMIN SHOW ================= */
 .chef_avatar {
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .chef_avatar img {
@@ -362,4 +364,10 @@ textarea {
 .chef_avatar h2 {
     font-size: 36px;
     margin-top: 20px;
+}
+
+.totalRecipes {
+    font-size: 20px;
+    color: #777777;
+    text-align: center;
 }

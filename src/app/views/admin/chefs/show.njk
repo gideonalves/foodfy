@@ -4,28 +4,31 @@
 
     <main>
         <div class="subtitulo">
-                <h2>Chef: {{items.name}}</h2>
+                <h2>Chef: {{chef.name}}</h2>
                 {# <button type="submit">Editar receita</button> #}
-                <a href="/admin/chefs/{{ items.id }}/edit" class="button">Editar Chef</a>
+                <a href="/admin/chefs/{{ chef.id }}/edit" class="button">Editar Chef</a>
         </div>
 
         <div class="chef_avatar">
-            <img src="{{items.avatar_url}}" alt="Imagem de {{items.title}}">
-            <h2>{{items.name}}</h2>
-            <span>{{items.author}}</span>
+            <img src="{{chef.avatar_url}}" alt="Imagem de {{chef.title}}">
+            <h2>{{chef.name}}</h2>
+            <span class="totalRecipes">{{totalRecipes}} Receitas</span>
         </div>
 
-        <section class="cards">
-            {% for item in items %}
+        <h2>Receitas</h2>
+        
+        <section class="chefs_cards">
+
+            {% for recipe in recipes %}
                 <div class="card_container">
                        {# <div class="card" id="{{items.indexOf(item)}}">  #}
                     <div class="card__image">
-                        <img src="{{item.image}}" alt="Imagen de{{item.title}}">
+                        <img src="{{recipe.image}}" alt="Imagen de{{recipe.title}}">
                     </div>
                     <div class="card__info">
-                        <h2>{{item.title}}</h2>
-                        <p>{{item.author}}</p>
-                        <a href="/admin/recipes/{{item.id}}">Visualizar</a>
+                        <h2>{{recipe.title}}</h2>
+                        <p>{{chef.name}}</p>
+                        <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                     </div>
                 </div>
             {% endfor %}

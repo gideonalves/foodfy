@@ -21,12 +21,12 @@
                 <input 
                     type="hidden" 
                     name="id" 
-                    value="{{ items.id }}"
+                    value="{{ chef.id }}"
                 >
             </form>
 
             <form id="form-delete" action="/admin/chefs?_method=DELETE" method="post">
-                <input type="hidden" name="id" value="{{ items.id }}"> 
+                <input type="hidden" name="id" value="{{ chef.id }}"> 
             </form>
 
            

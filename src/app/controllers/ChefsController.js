@@ -22,31 +22,30 @@ module.exports = {
             }
         }
         
-        ChefsAdmin.create(req.body, function(recipe) {
-            return res.redirect(`/admin/chefs/${items.recipes.id}`)
+        ChefsAdmin.create(req.body, function(chef) {
+            return res.redirect(`/admin/chefs/${chef.id}`)
         })
        
     },
 
     show(req, res) {
         ChefsAdmin.find(req.params.id, function(chef, recipes, totalRecipes) {
-            if(!chef) return res.send("Recipes not found!")
-            
+            if(!chef) return res.send("Recipes not found!")            
 
             return res.render("admin/chefs/show", { chef, recipes, totalRecipes })
         })
-   },
+    },
 
     edit(req, res) {
-        ChefsAdmin.find(req.params.id, function(recipes) {
-            if(!recipes) return res.send("Recipes not found!")
+        ChefsAdmin.find(req.params.id, function(chef, recipes, totalRecipes) {
+            if(!chef, recipes, totalRecipes) return res.send("Recipes not found!")
 
-            return res.render("admin/chefs/edit", {items: recipes})
+            return res.render("admin/chefs/edit", { chef })
         })
     },
 
     put(req, res) {
-        // essa parte verifica se o formulario ta vazio -------------------
+       
         const keys = Object.keys(req.body)
 
         for (key of keys) {
@@ -55,7 +54,6 @@ module.exports = {
             }
         }
 
-    //-----------------------------------------------------------------
     ChefsAdmin.updade(req.body, function() {
             return res.redirect(`/admin/chefs/${req.body.id}`)
         })

@@ -1,10 +1,9 @@
- const ChefsAdmin = require('../../models/ChefsAdmin')
-
+const ChefsAdmin = require('../../models/ChefsAdmin')
+const Admin = require('../../models/Admin')
 module.exports = {
 
     index(req, res) {           
         ChefsAdmin.all(function(chefs) {
-            console.log(chefs)
             return res.render("admin/chefs/index", { chefs })
         })
     },
@@ -28,20 +27,21 @@ module.exports = {
        
     },
 
-    show(req, res) {
-        ChefsAdmin.find(req.params.id, function(chef, recipes, totalRecipes) {
-            if(!chef) return res.send("Recipes not found!")            
+    async show(req, res) {
+        let results = await ChefsAdmin.find(req.params.id) 
+        const chef = results.rows[0]
 
-            return res.render("admin/chefs/show", { chef, recipes, totalRecipes })
-        })
+        results = await Admin.findByChef(chef.id)
+        const recipes = results.rows
+
+            return res.render("admin/chefs/show", { chef, recipes })   
     },
 
-    edit(req, res) {
-        ChefsAdmin.find(req.params.id, function(chef, recipes, totalRecipes) {
-            if(!chef, recipes, totalRecipes) return res.send("Recipes not found!")
+    async edit(req, res) {
+        let results = await ChefsAdmin.find(req.params.id) 
+        const chef = results.rows[0]
 
-            return res.render("admin/chefs/edit", { chef })
-        })
+            return res.render("admin/chefs/edit", { chef })        
     },
 
     put(req, res) {
@@ -54,14 +54,17 @@ module.exports = {
             }
         }
 
-    ChefsAdmin.updade(req.body, function() {
+        ChefsAdmin.updade(req.body, function() {
             return res.redirect(`/admin/chefs/${req.body.id}`)
         })
     },
 
     delete(req, res) {
-        return
-    }
+        ChefsAdmin.delete(req.body.id, function() {
+            return res.redirect(`/admin/chefs/`)
+        })
+
+    },
 }
 
 

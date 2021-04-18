@@ -98,6 +98,17 @@ module.exports = {
 
             callback(results.rows)
         })  
+    },
+
+    findByChef(id) {
+        try{
+        return db.query(`
+            SELECT * FROM recipes 
+            WHERE chef_id = $1
+             `,[id])
+            } catch(error) {
+                throw error
+            }
     }
 
 }

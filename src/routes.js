@@ -28,6 +28,6 @@ routes.get("/admin/chefs/:id", ChefsController.show); // Exibir detalhes de uma 
 routes.get("/admin/chefs/:id/edit", ChefsController.edit); // Mostrar formulário de edição de receita
 routes.post("/admin/chefs", ChefsController.post); // Cadastrar nova receita
 routes.put("/admin/chefs",  ChefsController.put); // Editar uma receita
-// routes.delete("/admin/chefs", ChefsController.delete); // Deletar uma receita
+routes.delete("/admin/chefs", ChefsController.delete); // Deletar uma receita
 
 module.exports = routes

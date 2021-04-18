@@ -42,9 +42,9 @@ function addIngredient() {
     ingredients.appendChild(newField);
   }
   
-  document
-    .querySelector(".add-ingredient")
-    .addEventListener("click", addIngredient);
+//   document
+//     .querySelector(".add-ingredient")
+//     .addEventListener("click", addIngredient);
 
 
 // adicionando Preparação
@@ -64,9 +64,9 @@ function addPreparation() {
     preparations.appendChild(newField);
   }
   
-  document
-    .querySelector(".add-preparation")
-    .addEventListener("click", addPreparation);    
+//   document
+//     .querySelector(".add-preparation")
+//     .addEventListener("click", addPreparation);    
 
 
 

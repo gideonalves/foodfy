@@ -108,6 +108,7 @@ a.button {
     display: grid; /* forma dispay */
     grid-template-columns: 1fr 1fr; /* o "1fr" signica que fez 3 colunas*/
     gap: 20px; /* espaço de card e outro */  
+    margin-bottom: 5%;
  }
 
  .card_container {

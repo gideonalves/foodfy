@@ -1,4 +1,5 @@
-@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'; 
+/* @import 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap';  */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 * { /* aqui tira toda a margem do titulo */
     margin: 0;
@@ -13,7 +14,8 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto-Regular', sans-serif;    
+
 }  
 
 .header {
@@ -209,8 +211,15 @@ a.button {
 
 /* DETAILS */
 
-.details .item {
+.details .item,
+ select {
     padding: 15px 0;
+}
+
+.details select {
+    width: 100%;
+    font-size: 16px;
+    color: #999999;
 }
 
 .details .item div:nth-child(1){ /* pega tudo da primeira div */
@@ -223,7 +232,6 @@ a.button {
     font-size: 24px;
     font-weight: bold;
     color: #111111;
-
 }
 
 .details a { 
@@ -237,7 +245,7 @@ a.button {
 
 /* FORM */
 
-input {
+input, select {
     width: 100%;
     height: 49px;
     margin-top: 5px;

@@ -1,7 +1,7 @@
 const db = require('../config/db')
 
 module.exports = {
-
+    // INDEX
     all(callback) {
         db.query(`SELECT * FROM chefs`,
          function(err, results) {
@@ -9,7 +9,7 @@ module.exports = {
             callback(results.rows)
         })    
     },
-
+    // POST
     create(data, callback) {
          //inserir dados no banco de dados
          const query = `
@@ -33,17 +33,44 @@ module.exports = {
          })
     },
     // show
-    find(id){
-        try{
-            return db.query(`
+    find(id, callback){
+        
+        db.query( `
             SELECT chefs.*,
-            count(*) AS totalRecipes FROM chefs
+            count(recipes.chef_id) AS totalRecipes FROM chefs
             LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
             WHERE chefs.id = $1
-            GROUP BY chefs.id`, [id])
-        } catch(error) {
-            throw error
-        }
+            GROUP BY chefs.id`, [id], function(err, results) {
+                if (err) return res.send("Database Erro!")
+
+                callback(results.rows[0])
+            })
+    }, 
+    
+    findRecipes(id, callback) {
+        db.query(`
+        SELECT r.* FROM chefs as c 
+        LEFT JOIN  recipes as r
+        ON c.id = r.chef_id
+        WHERE c.id = $1  
+        `,[id], function(err, results) {
+            if (err) return res.send("Database Erro!")
+
+            callback(results.rows)
+        })
+    },
+
+    findById(id, callback) {
+        db.query( `
+        SELECT chefs.*,
+        count(*) AS totalRecipes FROM chefs
+        LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
+        WHERE chefs.id = $1
+        GROUP BY chefs.id`, [id], function(err, results) {
+            if (err) return res.send("Database Erro!")
+
+            callback(results.rows[0])
+        })
     },
 
     updade(data, callback) {

@@ -4,7 +4,7 @@ module.exports = {
 
     index(req, res) {
         Recipes.all(function(recipes) {
-        return res.render("recipes/index", { items: recipes })   
+        return res.render("recipes/index", { recipes })   
         }) 
     }, 
     

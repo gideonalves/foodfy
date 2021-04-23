@@ -22,14 +22,14 @@
 
         <section class="cards">
 
-            {% for item in items %}
-                <div class="card" id="{{item.id}}"> 
+            {% for recipe in recipes %}
+                <div class="card" id="{{recipe.id}}"> 
                     <div class="card__image">
-                        <img src="{{item.image}}" alt="Imagen de{{item.title}}">
+                        <img src="{{recipe.image}}" alt="Imagen de{{recipe.title}}">
                     </div>
                     <div class="card__info">
-                        <h2>{{item.title}}</h2>
-                        <p>{{item.author}}</p>
+                        <h2>{{recipe.title}}</h2>
+                        <p>{{recipe.author}}</p>
                     </div>
                 </div>
             {% endfor %}

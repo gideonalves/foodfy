@@ -8,16 +8,17 @@
         </div>
 
         <section class="cards">
-            {% for item in items %}
+            {% for recipe in recipes %}
                 <div class="card_container">
-                       {# <div class="card" id="{{items.indexOf(item)}}">  #}
                     <div class="card__image">
-                        <img src="{{item.image}}" alt="Imagen de{{item.title}}">
+                        <img 
+                            src="{{recipe.image}}" 
+                            alt="Imagen de{{recipe.title}}">
                     </div>
                     <div class="card__info">
-                        <h2>{{item.title}}</h2>
-                        <p>{{item.author}}</p>
-                        <a href="/admin/recipes/{{item.id}}">Visualizar</a>
+                        <h2>{{recipe.title}}</h2>
+                        <p>por {{recipe.author}}</p>
+                        <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                     </div>
                 </div>
             {% endfor %}

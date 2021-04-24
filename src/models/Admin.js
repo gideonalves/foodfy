@@ -3,13 +3,19 @@ const db = require('../config/db')
 module.exports = {
 
     all(callback) {
-        db.query(`SELECT * FROM recipes`,
+        db.query(`
+        SELECT recipes.id,recipes.image,recipes.title,chefs.name
+        FROM recipes
+        INNER JOIN chefs
+        ON recipes.chef_id = chefs.id`,
          function(err, results) {
             if(err) throw `Database Erro! ${err}`
 
             callback(results.rows)
         })    
     },
+
+    
 //        req.body        
     create(data, callback) { 
          //inserir dados no banco de dados

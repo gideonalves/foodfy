@@ -44,19 +44,19 @@ module.exports = {
                 if (err) return res.send("Database Erro!")
 
                 callback(results.rows[0])
-            })
+        })
     }, 
     
     findRecipes(id, callback) {
         db.query(`
-        SELECT r.* FROM chefs as c 
-        LEFT JOIN  recipes as r
-        ON c.id = r.chef_id
-        WHERE c.id = $1  
-        `,[id], function(err, results) {
-            if (err) return res.send("Database Erro!")
+            SELECT r.* FROM chefs as c 
+            LEFT JOIN  recipes as r
+            ON c.id = r.chef_id
+            WHERE c.id = $1  
+            `,[id], function(err, results) {
+                if (err) return res.send("Database Erro!")
 
-            callback(results.rows)
+                callback(results.rows)
         })
     },
 

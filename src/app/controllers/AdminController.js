@@ -4,7 +4,6 @@ module.exports = {
 
     indexRecipe(req, res) {
         Admin.all(function (recipes) {
-
             return res.render("admin/recipes/indexRecipe", { recipes })
         })
     },
@@ -31,9 +30,9 @@ module.exports = {
 
     },
 
-    showRecipe(req, res) {
+    showRecipe(req, res) {        
         Admin.find(req.params.id, function (recipes) {
-            console.log(recipes)
+
             if (!recipes) return res.send("Recipes not found!")
 
             return res.render("admin/recipes/showRecipe", { items: recipes })
@@ -66,18 +65,13 @@ module.exports = {
         // filtro do array ingredites para remover item vazio
         req.body.ingredients = req.body.ingredients.filter(function (item) { // filter precisa retornar boolean se o boolean for verdadeiro ele mantem o item no array  se for false ele tira o item do array                     
             // console.log(item != "")
-            return item != ""
-            
+            return item != ""            
 
             // if(item == "") // aqui to falando que o item ta vazio
             // {
             //     return false // essa linha tira o item do arrey 
             // }
             // return true // essa linha mantem o item no arrey
-
-
-
-
         })
 
         // console.log(req.body.ingredients)

@@ -31,3 +31,5 @@ routes.put("/admin/chefs",  ChefsController.put); // Editar uma receita
 // routes.delete("/admin/chefs", ChefsController.delete); // Deletar uma receita
 
 module.exports = routes
+
+

@@ -18,6 +18,13 @@ module.exports = {
 
             return res.render("recipes/recipe", { items: recipe })        
         })
+    },
+
+    recipes(req, res) {
+        Recipes.all(function(recipes) {
+            return res.render("recipes/recipes", { items: recipes })   
+            }) 
     }
       
+
 }

@@ -1,15 +1,15 @@
-const Admin = require('../../models/Admin')
+const RecipesAdmin = require('../../models/RecipesAdmin')
 
 module.exports = {
 
     indexRecipe(req, res) {
-        Admin.all(function (recipes) {
+        RecipesAdmin.all(function (recipes) {
             return res.render("admin/recipes/indexRecipe", { recipes })
         })
     },
 
     createRecipe(req, res) {
-        Admin.chefSelectOptions(function (options) {
+        RecipesAdmin.chefSelectOptions(function (options) {
             return res.render("admin/recipes/createRecipe", { chefOptions: options })
         })
     },
@@ -23,15 +23,15 @@ module.exports = {
             }
         }
         //        fucao    paramet,  paramet
-        Admin.create(req.body, function (recipe) { // fuções callback
+        RecipesAdmin.create(req.body, function (recipe) { // fuções callback
             // console.log(recipe)
             return res.redirect(`/admin/recipes/${recipe.id}`)
         })
 
     },
 
-    showRecipe(req, res) {        
-        Admin.find(req.params.id, function (recipes) {
+    showRecipe(req, res) {
+        RecipesAdmin.find(req.params.id, function (recipes) {
 
             if (!recipes) return res.send("Recipes not found!")
 
@@ -40,12 +40,12 @@ module.exports = {
     },
 
     editRecipe(req, res) {
-        Admin.find(req.params.id, function (recipes) {
+        RecipesAdmin.find(req.params.id, function (recipes) {
             if (!recipes) return res.send("Recipes not found!")
 
-            Admin.chefSelectOptions(function (options) {
-                return res.render("admin/recipes/editRecipe", {items: recipes,  chefOptions: options })
-    
+            RecipesAdmin.chefSelectOptions(function (options) {
+                return res.render("admin/recipes/editRecipe", { items: recipes, chefOptions: options })
+
             })
 
             // return res.render("admin/recipes/editRecipe", { items: recipes })
@@ -56,7 +56,7 @@ module.exports = {
         // essa parte verifica se o formulario ta vazio -------------------
         const keys = Object.keys(req.body)
         // return res.send(keys)
-        
+
         for (key of keys) {
             if (req.body[key] == "") {
                 return res.send('Please, fill all fields!')
@@ -65,7 +65,7 @@ module.exports = {
         // filtro do array ingredites para remover item vazio
         req.body.ingredients = req.body.ingredients.filter(function (item) { // filter precisa retornar boolean se o boolean for verdadeiro ele mantem o item no array  se for false ele tira o item do array                     
             // console.log(item != "")
-            return item != ""            
+            return item != ""
 
             // if(item == "") // aqui to falando que o item ta vazio
             // {
@@ -76,13 +76,13 @@ module.exports = {
 
         // console.log(req.body.ingredients)
         //-----------------------------------------------------------------
-        Admin.updade(req.body, function () {
+        RecipesAdmin.updade(req.body, function () {
             return res.redirect(`/admin/recipes/${req.body.id}`)
         })
     },
 
     delete(req, res) {
-        Admin.delete(req.body.id, function () {
+        RecipesAdmin.delete(req.body.id, function () {
             return res.redirect(`/admin/recipes`)
         })
 

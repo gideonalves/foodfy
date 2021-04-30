@@ -90,7 +90,8 @@ main {
 
 /* =========== CARDS ================= */
 
-.cards {
+.cards 
+ {   
     margin-top: 20px;
     display: grid; /* forma dispay */
     grid-template-columns: 1fr 1fr 1fr; /* o "1fr" signica que fez 3 colunas*/
@@ -258,3 +259,45 @@ header form input {
     font-size: 14px;
     color: #999999;     
 }
+
+
+/* CHEFS */
+
+.cards_chefs {
+    margin-top: 20px;
+    display: grid; /* forma dispay */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* o "1fr" signica que fez 3 colunas*/
+    gap: 20px; /* espaço de card e outro */  
+ }
+
+ .chef_container {
+     display: flex;
+ }
+
+ .chef_image {
+    margin-right: 20px;
+ }
+
+ .chef_image img {
+     width: 64px;
+     height: 64px;
+     border-radius: 50%;
+     cursor: pointer;  
+ }
+ 
+ .chef_image img:hover {
+     background-color: white;
+     border-radius: 16px;
+     transform: scale(1.05);
+     transition: transform .2s linear;
+ }
+
+ .chef_info h2 {
+     font-size: 18px;
+     line-height: 28px;
+     /* margin-top: 20px; */
+     color: var(--color-font);
+ }
+ 
+
+

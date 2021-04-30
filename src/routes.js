@@ -11,6 +11,8 @@ routes.get("/", RecipesController.index ) //ROTA INDEX
 routes.get("/about", RecipesController.about) // ROTA SOBRE
 routes.get("/recipes", RecipesController.recipes ) // ROTA DE RECEITAS
 routes.get("/recipe/:id", RecipesController.recipe) //  ROTA DE RECIPES
+routes.get("/recipes/chefs", RecipesController.chefs); // Mostrar a lista de Chefs
+
 
 // Rotas Administração
 routes.get("/admin/recipes", AdminController.indexRecipe); // Mostrar a lista de receitas

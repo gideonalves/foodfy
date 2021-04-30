@@ -1,5 +1,4 @@
-const { updade } = require('../../models/ChefsAdmin')
-const ChefsAdmin = require('../../models/ChefsAdmin')
+  const ChefsAdmin = require('../../models/ChefsAdmin')
 
 module.exports = {
 

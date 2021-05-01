@@ -63,14 +63,14 @@ module.exports = {
         ChefsAdmin.updade(req.body, function () {
             return res.redirect(`/admin/chefs/${req.body.id}`)
         })
+    },
+
+    delete(req, res) {
+        ChefsAdmin.delete(req.body.id, function () {
+            return res.redirect(`/admin/chefs/`)
+        })
+
     }
-
-    // delete(req, res) {
-    //     ChefsAdmin.delete(req.body.id, function () {
-    //         return res.redirect(`/admin/chefs/`)
-    //     })
-
-    // }
 }
 
 

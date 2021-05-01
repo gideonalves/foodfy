@@ -25,13 +25,13 @@ routes.put("/admin/recipes",  AdminController.put); // Editar uma receita
 routes.delete("/admin/recipes", AdminController.delete); // Deletar uma receita
 
 // Rotas Chefs
-routes.get("/admin/chefs", ChefsController.indexChef); // Mostrar a lista de receitas
-routes.get("/admin/chefs/createChef", ChefsController.createChef); // Mostrar formulário de nova receita
-routes.get("/admin/chefs/:id", ChefsController.showChef); // Exibir detalhes de uma receita
-routes.get("/admin/chefs/:id/editChef", ChefsController.editChef); // Mostrar formulário de edição de receita
-routes.post("/admin/chefs", ChefsController.post); // Cadastrar nova receita
-routes.put("/admin/chefs",  ChefsController.put); // Editar uma receita
-// routes.delete("/admin/chefs", ChefsController.delete); // Deletar uma receita
+routes.get("/admin/chefs", ChefsController.indexChef); // Mostrar a lista de chefs
+routes.get("/admin/chefs/createChef", ChefsController.createChef); // Mostrar formulário de nova chefs
+routes.get("/admin/chefs/:id", ChefsController.showChef); // Exibir detalhes de uma chefs
+routes.get("/admin/chefs/:id/editChef", ChefsController.editChef); // Mostrar formulário de edição de chefs
+routes.post("/admin/chefs", ChefsController.post); // Cadastrar nova chefs
+routes.put("/admin/chefs",  ChefsController.put); // Editar uma chefs
+routes.delete("/admin/chefs", ChefsController.delete); // Deletar uma chefs
 
 module.exports = routes
 

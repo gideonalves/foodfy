@@ -185,7 +185,7 @@ a.button {
      border-radius: 16px;
      transform: scale(1.05);
      transition: transform .2s linear;
- }
+ } *
 
  .chef_info h2 {
      font-size: 18px;

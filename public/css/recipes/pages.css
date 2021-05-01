@@ -205,7 +205,7 @@ h3{
 }
 
 p {
-    margin: 20px auto 20px auto;
+    /* margin: 20px auto 20px auto; */
     font-family: Roboto-Regular;
     font-size: 18px;
     color: #444444;
@@ -278,21 +278,14 @@ header form input {
     margin-right: 20px;
  }
 
- .chef_image img {
+.chef_image img {
      width: 64px;
      height: 64px;
      border-radius: 50%;
      cursor: pointer;  
  }
  
- .chef_image img:hover {
-     background-color: white;
-     border-radius: 16px;
-     transform: scale(1.05);
-     transition: transform .2s linear;
- }
-
- .chef_info h2 {
+.chef_info h2 {
      font-size: 18px;
      line-height: 28px;
      /* margin-top: 20px; */

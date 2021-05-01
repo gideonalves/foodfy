@@ -23,6 +23,18 @@ module.exports = {
                 callback(results.rows[0])
             })
     }, 
+
+    findAllByTitle(filter,callback) {
+        db.query(`
+        SELECT r.*, c.name FROM recipes r
+        INNER JOIN chefs c
+        ON c.id = r.chef_id	
+        WHERE r.title LIKE '%${filter}%'`, function(err, results) {
+                if(err) throw `Database Erro! ${err}`
+    
+                callback(results.rows)
+            })
+    }
  
 
 }

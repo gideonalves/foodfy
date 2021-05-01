@@ -1,0 +1,33 @@
+{% extends "pages/layout.njk" %}
+
+
+{% block content %}
+
+    <main>
+      
+        <div class="subtitulo">
+            <h2>Buscar por "{{filter}}"</h2>
+        </div>
+
+        <section class="cards">
+            {%if recipes.length > 0 %}
+            {% for recipe in recipes %}
+                <div class="card" id="{{recipe.id}}"> 
+                    <div class="card__image">
+                        <img src="{{recipe.image}}" alt="Imagen de{{recipe.title}}">
+                    </div>
+                    <div class="card__info">
+                        <h2>{{recipe.title}}</h2>
+                        <p>por {{recipe.name}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            {% else %}
+            <h2>Busca não encontrada</h2>
+            {%endif%}
+
+        </section>
+
+    </main>
+
+{% endblock %}

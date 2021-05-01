@@ -9,9 +9,11 @@ const ChefsController = require('./app/controllers/ChefsController')
 // Rotas Recipes Principais
 routes.get("/", PagesController.index ) //ROTA INDEX
 routes.get("/about", PagesController.about) // ROTA SOBRE
-// // routes.get("/recipes", RecipesController.recipes ) // ROTA DE RECEITAS
+routes.get("/recipes", PagesController.recipes ) // ROTA DE RECEITAS
 routes.get("/recipe/:id", PagesController.recipe) //  ROTA DE RECIPES
 routes.get('/chefs', PagesController.pagesChefs)
+routes.get('/recipes/search', PagesController.filterRecipesByTitle)
+
 
 // Rotas Administração
 routes.get("/admin/recipes", AdminController.indexRecipe); // Mostrar a lista de receitas

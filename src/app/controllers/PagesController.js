@@ -32,7 +32,15 @@ module.exports = {
         Chefs.findAllChefsCountRecipes(chefs =>{
              return res.render("pages/chefs", { chefs })   
         })
-    }
-  
+    },
+
+    filterRecipesByTitle(req, res) {
+        const {filter} = req.query
+        Recipes.findAllByTitle(filter,recipes =>{
+            
+            console.log(recipes)
+            return res.render("pages/filter",{recipes,filter})
+        })
+    } 
 
 }

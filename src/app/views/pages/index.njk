@@ -1,4 +1,5 @@
-{% extends "recipes/layout.njk" %}
+{% extends "pages/layout.njk" %}
+
 
 {% block content %}
 
@@ -29,7 +30,7 @@
                     </div>
                     <div class="card__info">
                         <h2>{{recipe.title}}</h2>
-                        <p>{{recipe.author}}</p>
+                        <p>por {{recipe.name}}</p>
                     </div>
                 </div>
             {% endfor %}

@@ -1,16 +1,16 @@
 const express = require('express')
 const routes = express.Router()
 
-const RecipesController = require('./app/controllers/RecipesController')
+const PagesController = require('./app/controllers/PagesController')
 const AdminController = require('./app/controllers/AdminController')
 const ChefsController = require('./app/controllers/ChefsController')
 
 
 // Rotas Recipes Principais
-routes.get("/", RecipesController.index ) //ROTA INDEX
-routes.get("/about", RecipesController.about) // ROTA SOBRE
+routes.get("/", PagesController.index ) //ROTA INDEX
+routes.get("/about", PagesController.about) // ROTA SOBRE
 // // routes.get("/recipes", RecipesController.recipes ) // ROTA DE RECEITAS
-routes.get("/recipe/:id", RecipesController.recipe) //  ROTA DE RECIPES
+routes.get("/recipe/:id", PagesController.recipe) //  ROTA DE RECIPES
 
 // Rotas Administração
 routes.get("/admin/recipes", AdminController.indexRecipe); // Mostrar a lista de receitas

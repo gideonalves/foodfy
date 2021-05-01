@@ -9,6 +9,7 @@ module.exports = {
         INNER JOIN chefs ON (recipes.chef_id = chefs.id)`,
          function(err, results) {
             if(err) throw `Database Erro! ${err}`
+            console.log(results)
             callback(results.rows)
         })    
     },
@@ -22,6 +23,16 @@ module.exports = {
     
                 callback(results.rows[0])
             })
+    }, 
+
+    // show
+    allChefs(callback){
+        
+        db.query(`SELECT avatar_url, name FROM chefs`,
+        function(err, results) {
+           if(err) throw `Database Erro! ${err}`
+           callback(results.rows)
+       })    
     }, 
    
 

@@ -9,6 +9,21 @@ module.exports = {
             callback(results.rows)
         })    
     },
+
+    findAllChefsCountRecipes(callback) {
+        db.query(`
+        SELECT c.id, c.name,count(r.id) AS total_recipes,c.avatar_url
+        FROM chefs c
+        INNER JOIN recipes r
+        ON c.id = r.chef_id
+        GROUP BY c.id,c.name,c.avatar_url 
+        ORDER BY c.name ASC
+        `, function(err, results) {
+            if(err) throw `Database Erro! ${err}`
+            callback(results.rows)
+        })
+    },
+
     // POST
     create(data, callback) {
          //inserir dados no banco de dados

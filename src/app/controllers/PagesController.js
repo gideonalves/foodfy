@@ -1,4 +1,5 @@
 const Recipes = require('../../models/Recipes')
+const Chefs = require('../../models/ChefsAdmin')
 
 
 module.exports = {
@@ -23,14 +24,15 @@ module.exports = {
 
     recipes(req, res) {
         Recipes.all(function(recipes) {
-            return res.render("recipes/recipes", { items: recipes })   
+            return res.render("pages/recipes", { items: recipes })   
             }) 
     },
 
-    chefs(req, res) {
-        Recipes.allChefs(function (chefs) {
-            return res.render("recipes/chefs", { chefs })
+    pagesChefs(req, res) {        
+        Chefs.findAllChefsCountRecipes(chefs =>{
+             return res.render("pages/chefs", { chefs })   
         })
     }
+  
 
 }

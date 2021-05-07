@@ -95,7 +95,8 @@ main {
     margin-top: 20px;
     display: grid; /* forma dispay */
     grid-template-columns: 1fr 1fr 1fr; /* o "1fr" signica que fez 3 colunas*/
-    gap: 20px; /* espaço de card e outro */  
+    gap: 20px; /* espaço de card e outro */ 
+    margin-bottom: 30px; 
  }
  
  .card__image img {
@@ -168,7 +169,7 @@ main {
 .details .title {
     font-size: 24px;
     line-height: 34px;
-    color: #111111;
+    color: var(--color-font);
     margin-right: 8px;
 }
 
@@ -213,18 +214,21 @@ p {
 }
 
 footer {
-    margin-top: 50px;
+    width: 100%;
+    bottom: 0;
+    margin-top: 25px;
     background: #EEEEEE;
     height: 62px;
     align-content: center;   
     display: flex;
-   }
+}
 
 footer p {
     font-size: 14px;
     color: #999999;
     text-align: center;
-    margin: auto;    
+    margin: auto; 
+
 }  
 
 /* Filter */
@@ -292,5 +296,24 @@ header form input {
      color: var(--color-font);
  }
  
+ 
+/* pagination */
 
+.pagination {
+    width: 940px;
+    text-align: center;
+    margin: 0;
+}
+
+.pagination a,
+.pagination span {
+    color: var(--color-font);
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.pagination a:hover {
+    filter: brightness(0.3);
+    border-bottom: var(--color-font);
+}
 

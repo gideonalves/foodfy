@@ -1,4 +1,5 @@
-  const ChefsAdmin = require('../../models/ChefsAdmin')
+const ChefsAdmin = require('../../models/ChefsAdmin')
+const Recipes = require('../../models/Recipes')
 
 module.exports = {
 
@@ -25,25 +26,25 @@ module.exports = {
             return res.redirect(`/admin/chefs/${chef.id}`)
         })
     },
-    
+
 
     showChef(req, res) {
 
-        ChefsAdmin.find(req.params.id, function( chef ) {
+        ChefsAdmin.find(req.params.id, function (chef) {
             if (!chef) return res.send("Recipes not found!")
 
-        ChefsAdmin.findRecipes(req.params.id, function( recipes ) {
-        if (!recipes) return res.send("Recipes not found!")
+            ChefsAdmin.findRecipes(req.params.id, function (recipes) {
+                if (!recipes) return res.send("Recipes not found!")
 
-            res.render("admin/chefs/showChef", { chef, recipes })
+                res.render("admin/chefs/showChef", { chef, recipes, msgError: '' })
             })
-          
+
         })
 
     },
 
-    editChef(req, res) {      
-        ChefsAdmin.findById(req.params.id, function( chef ) {
+    editChef(req, res) {
+        ChefsAdmin.findById(req.params.id, function (chef) {
             if (!chef) return res.send("Chef not found!")
 
             return res.render("admin/chefs/editChef", { chef })
@@ -66,8 +67,22 @@ module.exports = {
     },
 
     delete(req, res) {
-        ChefsAdmin.delete(req.body.id, function () {
-            return res.redirect(`/admin/chefs/`)
+        Recipes.findOneByChef(req.body.id, recipes => {
+
+            if (recipes.length == 0) {
+                ChefsAdmin.delete(req.body.id, function () {
+                    ChefsAdmin.all(function (chefs) {
+                        return res.render("admin/chefs/indexChef", { chefs, msgError: "" })
+                    })
+                })
+
+            } else {
+                ChefsAdmin.findById(req.body.id, chef => {
+                    ChefsAdmin.findRecipes(req.body.id, recipes => {
+                        res.render("admin/chefs/showChef", { chef, recipes, msgError: 'Impossivel deletar o chef com receitas cadastradas, "exclua suas receitas depois delete o chef!"' })
+                    })
+                })
+            }
         })
 
     }

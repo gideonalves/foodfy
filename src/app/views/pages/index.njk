@@ -4,39 +4,47 @@
 {% block content %}
 
     <main>
-        <section class="container-banner">
-            <div class="container-one">
-                <h1>As melhores receitas</h1>
-                <p>
-                    Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.
-                </p>
-            </div>
-
-            <div class="chefe">
-                <img src="./assets/chef.png" alt="chefe">
-            </div>
-        </section>
-
-        <div class="subtitulo">
-            <h2>Mais acessadas</h2>
-        </div>
-
-        <section class="cards">
-
-            {% for recipe in recipes %}
-                <div class="card" id="{{recipe.id}}"> 
-                    <div class="card__image">
-                        <img src="{{recipe.image}}" alt="Imagen de{{recipe.title}}">
-                    </div>
-                    <div class="card__info">
-                        <h2>{{recipe.title}}</h2>
-                        <p>por {{recipe.name}}</p>
-                    </div>
+    
+            <section class="container-banner">
+                <div class="container-one">
+                    <h1>As melhores receitas</h1>
+                    <p>
+                        Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.
+                    </p>
                 </div>
-            {% endfor %}
 
-        </section>
+                <div class="chefe">
+                    <img src="./assets/chef.png" alt="chefe">
+                </div>
+            </section>
 
+            <div class="subtitulo">
+                <h2>Mais acessadas</h2>
+            </div>
+
+            <section class="cards">
+
+                {% for recipe in recipes %}
+                    <div class="card" id="{{recipe.id}}"> 
+                        <div class="card__image">
+                            <img src="{{recipe.image}}" alt="Imagen de{{recipe.title}}">
+                        </div>
+                        <div class="card__info">
+                            <h2>{{recipe.title}}</h2>
+                            <p>por {{recipe.name}}</p>
+                        </div>
+                    </div>
+                {% endfor %}        
+
+              
+            </section>   
+
+              <div class="pagination"
+                    data-page={{pagination.page}}
+                    data-total={{pagination.total}}
+                    data-filter={{pagination.filter}}
+                ></div>         
+        
     </main>
 
 {% endblock %}

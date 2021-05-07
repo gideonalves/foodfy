@@ -380,3 +380,73 @@ textarea {
     color: #777777;
     text-align: center;
 }
+
+
+
+/* ==== MODAL ==== */
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* aqui ele coloca uma pagina porcima da outra com a opacidade de 0.7 */
+    width: 100%; /* Largura */
+    height: 100%; /* Altura */
+    position: fixed; /* posição fixasada quer dizer que a pagina fica fixisada */
+    top: 0px; /* aqui ele pucha a pagina com a opcidade la para o topo */
+    opacity: 0;  /*pagina com opacidade some */
+    visibility: hidden; /* visibilidade escondida*/
+    margin: 0 auto;
+}
+
+
+.modal {
+    background-color: #FFFFFF; /* cor de fundo */
+    width: 660px; /* Largura */
+    height: 413px; /* Altura */
+    margin: 20vh auto; /* margin de 5 vh visão de altura 5 top e 5 em baixo */
+    border-radius: 16px;
+    border-radius: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal p {
+    font-family: Roboto-Regular;
+    font-size: 16px;
+    color: #999999;
+    line-height: 26px;
+    cursor: pointer;
+    margin-top: 60px;
+    bottom: 10px;
+    text-align: center;
+}
+
+.modal .modal_info h2 {
+    font-family: Roboto-Regular;
+    font-size: 24px;
+    color: #111111;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal .modal_info h3 {
+    font-family: Roboto-Regular;
+    font-size: 18px;
+    color: #777777;
+    text-align: center;
+}
+
+/* ==== MODAL.ACTIVE ==== */
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal img {
+    width: 600px;
+    height: 200px;
+    border-radius: 15px;
+    border-radius: 15px;
+    margin: 30px 30px 0px 30px;
+}

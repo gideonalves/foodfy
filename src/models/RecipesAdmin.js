@@ -1,4 +1,5 @@
 const db = require('../config/db')
+const {date} =  require('../lib/utils')
 
 module.exports = {
 
@@ -37,7 +38,7 @@ module.exports = {
             data.ingredients,
             data.preparation,
             data.information,
-            data.created_at
+            date(Date.now()).iso
         ]
 
         db.query(query, values, function (err, results) {

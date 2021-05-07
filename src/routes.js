@@ -15,6 +15,7 @@ routes.get('/chefs', PagesController.pagesChefs)
 routes.get('/recipes/search', PagesController.filterRecipesByTitle)
 
 
+
 // Rotas Administração
 routes.get("/admin/recipes", AdminController.indexRecipe); // Mostrar a lista de receitas
 routes.get("/admin/recipes/createRecipe", AdminController.createRecipe); // Mostrar formulário de nova receita

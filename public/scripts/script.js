@@ -25,6 +25,8 @@ for (let i = 0; i < hideShow.length; i++) {
     })
 }
 
+
+
 // Paginação
 const currentPage = location.pathname
 const menuItems = document.querySelectorAll("header .links a")
@@ -102,3 +104,5 @@ const pagination =  document.querySelector(".pagination")
 if (pagination) {
     createPagination(pagination)
 }
+
+

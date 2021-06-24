@@ -42,3 +42,5 @@ function addPreparation() {
     .querySelector(".add-preparation")
     .addEventListener("click", addPreparation);    
 
+
+

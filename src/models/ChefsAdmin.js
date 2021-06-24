@@ -74,7 +74,7 @@ module.exports = {
                 callback(results.rows)
         })
     },
-
+    // Edit
     findById(id, callback) {
         db.query( `
         SELECT chefs.*,

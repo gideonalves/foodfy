@@ -3,34 +3,90 @@
 {% block content %}
 
     <main>
-            <form  class="details" method="POST" action="/admin/chefs?_method=PUT">
+        <form class="details" method="POST" action="/admin/chefs?_method=PUT">
 
-                <div class="subtitulo">
-                    <div>
-                        <h2>Editar Chef</h2>
-                    </div>
-                    <div>
-                        <button type="submit">Salvar chef</button>
-                        <button class="btnDele" form="form-delete" type="submit">Deletar</button>  
-                    </div>  
-                </div>   
+            <div class="subtitulo">
+                <div>
+                    <h2>Editar Chef</h2>
+                </div>
+                <div>
+                    <button type="submit">Salvar chef
+                    </button>
 
-                {% include 'admin/chefs/fields.njk' %}
+                    <button class="btnDele" form="form-delete" type="submit">Deletar
+                    </button>
+                </div>
+            </div>
 
-                <input 
-                    type="hidden" 
-                    name="id" 
-                    value="{{ chef.id }}"
-                >
-            </form>
+            {% include 'admin/chefs/fields.njk' %}
 
-            <form id="form-delete" action="/admin/chefs?_method=DELETE" method="post">
-                <input type="hidden" name="id" value="{{ chef.id }}"> 
-            </form>
+            <input type="hidden" name="id" value="{{ chef.id }}">
+        </form>
 
-           
+        <form id="form-delete" action="/admin/chefs?_method=DELETE" method="post">
+            <input type="hidden" name="id" value="{{ chef.id }}">
+        </form>
 
     </main>
 
-{% endblock %}
+    <div class="modal-overlay">
+        <!-- modal sobreposição -->
+        <div class="modal">
 
+            <img src="{{chef.avatar_url}}" alt="Imagem de {{chef.title}}">
+            <h2>{{chef.name}}</h2>
+            <h2>{{recipe.title}}</h2>
+            <p>{{chef.totalrecipes}}
+                Receitas</p>
+
+            <div class="modal_info">
+                <h3>Chef não pode ser Deletado</h3>
+            </div>
+
+            <button 
+                class="btnFechar"                                         
+                type="submit">Fechar
+            </button>
+
+           
+               
+            
+        </div>
+    </div>
+
+    <script>
+
+        if ({{ chef.totalrecipes }} == 0) {
+            const formDelete = document.querySelector("#form-delete")
+
+            formDelete.addEventListener("submit", function (event) {
+                const confirmation = confirm("Deseja Deletar?")
+                if (!confirmation) {
+                    event.preventDefault()
+                }
+
+            })
+        } else {
+
+            const modalOverlay = document.querySelector(".modal-overlay")
+            const formDelete = document.querySelector("#form-delete")
+            formDelete.addEventListener("submit", function (event) {
+
+                event.preventDefault()
+                modalOverlay.classList.add('active')
+
+                
+        document.querySelector(".btnFechar").addEventListener("click", function() {
+            modalOverlay.classList.remove("active")
+        })
+
+            })
+        }
+
+
+
+
+
+    </script>
+
+{% endblock %}

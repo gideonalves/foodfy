@@ -36,7 +36,9 @@ module.exports = {
             ChefsAdmin.findRecipes(req.params.id, function (recipes) {
                 if (!recipes) return res.send("Recipes not found!")
 
-                res.render("admin/chefs/showChef", { chef, recipes, msgError: '' })
+                // res.render("admin/chefs/showChef", { chef, recipes, msgError: '' })
+                res.render("admin/chefs/showChef", { chef, recipes })
+
             })
 
         })
@@ -44,8 +46,17 @@ module.exports = {
     },
 
     editChef(req, res) {
-        ChefsAdmin.findById(req.params.id, function (chef) {
+        ChefsAdmin.find(req.params.id, function (chef) {
             if (!chef) return res.send("Chef not found!")
+
+
+            // ChefsAdmin.findRecipes(req.params.id, function (recipes) {
+            //     if (!recipes) return res.send("Recipes not found!")
+            //     console.log(`CHEF: ${chef}, RECEITAS:${recipes}`)
+            //     // res.render("admin/chefs/showChef", { chef, recipes, msgError: '' })
+            //     res.render("admin/chefs/editChef", { chef, recipes})
+
+            // })
 
             return res.render("admin/chefs/editChef", { chef })
         })
@@ -69,20 +80,31 @@ module.exports = {
     delete(req, res) {
         Recipes.findOneByChef(req.body.id, recipes => {
 
-            if (recipes.length == 0) {
-                ChefsAdmin.delete(req.body.id, function () {
-                    ChefsAdmin.all(function (chefs) {
-                        return res.render("admin/chefs/indexChef", { chefs, msgError: "" })
-                    })
-                })
 
-            } else {
-                ChefsAdmin.findById(req.body.id, chef => {
-                    ChefsAdmin.findRecipes(req.body.id, recipes => {
-                        res.render("admin/chefs/showChef", { chef, recipes, msgError: 'Impossivel deletar o chef com receitas cadastradas, "exclua suas receitas depois delete o chef!"' })
-                    })
+            ChefsAdmin.delete(req.body.id, function () {
+                ChefsAdmin.all(function (chefs) {
+                    return res.render("admin/chefs/indexChef", { chefs })
                 })
-            }
+            })
+
+
+
+
+            // if (recipes.length == 0) {
+            //     ChefsAdmin.delete(req.body.id, function () {
+            //         ChefsAdmin.all(function (chefs) {
+            //             return res.render("admin/chefs/indexChef", { chefs, msgError: "" })
+            //         })
+            //     })
+
+            // } else {
+            //     ChefsAdmin.findById(req.body.id, chef => {
+            //         ChefsAdmin.findRecipes(req.body.id, recipes => {
+            //             res.render("admin/chefs/showChef", { chef, recipes, msgError: 'Impossivel deletar o chef com receitas cadastradas, "exclua suas receitas depois delete o chef!"' })
+            //         })
+            //     })
+            // }
+
         })
 
     }

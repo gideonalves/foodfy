@@ -14,17 +14,15 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    width: 940px;
+    align-items: center;  
+    margin: 0 auto;     
 }  
 
 header {
     display: flex;
     position: relative;  
-    /* justify-content: space-around; */
-    align-items: center;  
-    width: 940px;
     padding: 30px 0px 30px 0;
-    margin: 0 auto; 
-    
 }    
 
 .logo {
@@ -42,7 +40,7 @@ header {
 main {
     max-width: 940px;
     margin: 0 auto;
-    color: #111111;
+    /* color: #111111; */
 }
 
 .container-banner {
@@ -300,9 +298,9 @@ header form input {
 /* pagination */
 
 .pagination {
-    width: 940px;
+    /* width: 940px; */
     text-align: center;
-    margin: 0;
+    /* margin: 0; */
 }
 
 .pagination a,

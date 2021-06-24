@@ -399,26 +399,23 @@ textarea {
 
 .modal {
     background-color: #FFFFFF; /* cor de fundo */
-    width: 660px; /* Largura */
-    height: 413px; /* Altura */
-    margin: 20vh auto; /* margin de 5 vh visão de altura 5 top e 5 em baixo */
+    width: 700px; /* Largura */
+    height: 500px; /* Altura */
+    margin: 10vh auto; /* margin de 5 vh visão de altura 5 top e 5 em baixo */
     border-radius: 16px;
     border-radius: 16px;
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
 }
 
-.modal p {
-    font-family: Roboto-Regular;
-    font-size: 16px;
-    color: #999999;
-    line-height: 26px;
-    cursor: pointer;
+.modal img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
     margin-top: 60px;
-    bottom: 10px;
-    text-align: center;
+    margin-bottom: 30px;
 }
 
 .modal .modal_info h2 {
@@ -426,15 +423,21 @@ textarea {
     font-size: 24px;
     color: #111111;
     text-align: center;
-    margin-top: 20px;
 }
 
 .modal .modal_info h3 {
     font-family: Roboto-Regular;
-    font-size: 18px;
-    color: #777777;
+    font-size: 36px;
+    color: #f00b0b;
     text-align: center;
+    margin-top: 25px;
 }
+
+.modal .btnFechar {
+
+    margin-top: 25px;
+}
+
 
 /* ==== MODAL.ACTIVE ==== */
 
@@ -442,11 +445,11 @@ textarea {
     opacity: 1;
     visibility: visible;
 }
-
+/*
 .modal img {
     width: 600px;
     height: 200px;
     border-radius: 15px;
     border-radius: 15px;
     margin: 30px 30px 0px 30px;
-}
+} */ 

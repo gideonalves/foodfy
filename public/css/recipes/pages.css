@@ -187,6 +187,8 @@ main {
     line-height: 28px;
     color: #444444;
     margin-left: 16px;
+    text-decoration: none;
+    list-style: none;
 }
 
 .details-content p {

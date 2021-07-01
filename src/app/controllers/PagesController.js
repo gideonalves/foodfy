@@ -4,30 +4,30 @@ const Chefs = require('../../models/ChefsAdmin')
 
 module.exports = {
     index(req, res) {
-       res.send("ok")
-        // let { filter, page, limit } = req.query
+      // res.send("ok")
+        let { filter, page, limit } = req.query
 
-        // page = page || 1
-        // limit = limit || 3
+        page = page || 1
+        limit = limit || 3
 
-        // let offset = limit * (page - 1)
+        let offset = limit * (page - 1)
 
-        // const params = {
-        //     filter,
-        //     page,
-        //     limit,
-        //     offset,
-        //     callback(recipes) {
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(recipes) {
 
-        //         const pagination = {
-        //            total: Math.ceil(recipes[0].totapages/limit),
-        //             page
-        //         }
-        //         return res.render("pages/index", { recipes, pagination,filter })
-        //     }            
-        // }
+                const pagination = {
+                   total: Math.ceil(recipes[0].totapages/limit),
+                    page
+                }
+                return res.render("pages/index", { recipes, pagination,filter })
+            }            
+        }
        
-        //         Recipes.paginate(params)       
+                Recipes.paginate(params)       
 
     },
 

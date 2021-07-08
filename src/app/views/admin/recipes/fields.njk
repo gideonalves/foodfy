@@ -1,13 +1,28 @@
-<div class="item">
-    <div>Imagem da receita</div>
+<div class="item"> {# upload #}
+    <div>Fotos</div>
     <div>
-        <input 
-            type="text" 
-            name="image" 
-            value="{{items.image}}"
-        >
+        <div class="grid-photos">
+            <div id="photos-upload">
+                <input 
+                id="photos-input"
+                type="file" 
+                name="photos"
+                multiple
+                accept="image/*"
+                onchange="PhotosUpload.handleFileInput(event)"
+                >
+                <span></span>
+                <i class="material-icons">add</i>
+            </div>
+            
+            <div id="photos-preview">
+            </div>
+
+        </div>
+        
+
     </div>
-</div>
+</div> {# fim upload #}
 
 <div class="item">
     <div>Nome da receita</div>

@@ -4,13 +4,12 @@
 
     <main>
         <div class="subtitulo">
-                <h2>Receita: {{items.title}}</h2>
                 {# <button type="submit">Editar receita</button> #}
                 <a href="/admin/recipes/{{ items.id }}/editRecipe" class="button">Editar receita</a>
         </div>
-
+            {# aqui tem que fazer um for #}
         <div class="recipe-banner">
-            <img src="{{items.image}}" alt="Imagem de {{items.title}}">
+            <img src="{{items.files}}" alt="Imagem de {{files[0].name}}">
             <h2>{{items.title}}</h2>
             <span>{{items.author}}</span>
         </div>

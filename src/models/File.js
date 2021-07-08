@@ -19,6 +19,5 @@ module.exports = {
         const id =  await db.query(query, values) 
         return id;
     },
-
     
 }

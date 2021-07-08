@@ -5,7 +5,7 @@ module.exports = {
 
     all(callback) {
         db.query(`
-        SELECT recipes.id,recipes.image,recipes.title,chefs.name
+        SELECT recipes.id,recipes.title,chefs.name
         FROM recipes
         INNER JOIN chefs
         ON recipes.chef_id = chefs.id`,
@@ -22,18 +22,16 @@ module.exports = {
         const query = `
          INSERT INTO recipes (
              chef_id,
-             image,
              title,
              ingredients,
              preparation,
              information,
              created_at
-         ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+         ) VALUES ($1, $2, $3, $4, $5, $6)
          RETURNING id
          `
         const values = [
             data.chef_id,
-            data.image,
             data.title,
             data.ingredients,
             data.preparation,

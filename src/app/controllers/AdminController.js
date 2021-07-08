@@ -85,13 +85,14 @@ module.exports = {
             if (!recipes) return res.send("Recipes not found!")
 
             RecipesAdmin.chefSelectOptions(function (options) {
-                // return res.render("admin/recipes/editRecipe", { items: recipes, chefOptions: options })
+                return res.render("admin/recipes/editRecipe", { items: recipes, chefOptions: options })
 
             })
 
-            return res.render("admin/recipes/editRecipe", { items: recipes })
+            // return res.render("admin/recipes/editRecipe", { items: recipes })
         })
     },
+
 
     // async editRecipe(req, res) {
 
